@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:login/drawer.dart';
-import 'package:login/listview.dart';
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key key, this.title}) : super(key: key);
 
@@ -54,13 +54,13 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
-                  height: 155.0,
+                  height: 100.0,
                   child: Image.asset(
-                    "assets/logo.png",
+                    "assets/anpr.png",
                     fit: BoxFit.contain,
                   ),
                 ),
-                SizedBox(height: 45.0),
+                SizedBox(height: 130.0),
                 emailField,
                 SizedBox(height: 25.0),
                 passwordField,
@@ -98,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
       return true;
     }
     return false;
+    
   }
 
   void validateAndSubmit() async {
@@ -108,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
            user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email:_email, password:_password)).user;
           }
       catch (e) {
+
              print(e.message);
 
       }
@@ -115,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
         if(user!=null){
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => MyDrawer(title : Aby),
+            MaterialPageRoute(builder: (context) => MyDrawer(title:'Vehicle monitoring')),
           );
           print(user.email);
         }

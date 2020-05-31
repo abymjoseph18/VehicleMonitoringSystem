@@ -12,7 +12,6 @@ class MyHomepage extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Home Page')),
         body: BodyLayout(),
       ),
     );
@@ -37,7 +36,7 @@ Widget _myListView(BuildContext context) {
   return ListView.builder(
     scrollDirection: Axis.vertical,
     itemExtent: 125.0,
-       itemCount: titles.length,
+    itemCount: titles.length,
     itemBuilder: (context, index) {
       return Card( //                           <-- Card widget
         child: ListTile(
